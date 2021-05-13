@@ -1,5 +1,6 @@
 package ru.itis.architecture.services;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,12 +10,10 @@ import ru.itis.architecture.models.User;
 import ru.itis.architecture.repositories.UsersRepository;
 
 @Service
+@RequiredArgsConstructor
 public class SignUpServiceImpl implements SignUpService {
-    @Autowired
-    private UsersRepository usersRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final UsersRepository usersRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
