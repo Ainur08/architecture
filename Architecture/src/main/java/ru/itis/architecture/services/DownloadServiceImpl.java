@@ -20,9 +20,12 @@ public class DownloadServiceImpl implements DownloadService{
         try {
             String filePath = "files/" + fileName;
             File file = new File(filePath);
+            // байтовая реализация интерфеса Resource, получение ресурса файла
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
+            // перевод ресурса файла в массив байтов
             byte[] templateBytes = IOUtils.toByteArray(resource.getInputStream());
+            // создание и возврат dto файла
             return FileDto.builder()
                     .name(fileName)
                     .resource(new ByteArrayResource(templateBytes))

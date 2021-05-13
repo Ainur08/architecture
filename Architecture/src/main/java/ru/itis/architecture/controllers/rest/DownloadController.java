@@ -18,12 +18,17 @@ public class DownloadController {
     @GetMapping("/api/download/{fileName}")
     public ResponseEntity<?> downloadFile(@PathVariable("fileName") String fileName) {
         try {
+            // получение dto файла и его ресурса
             FileDto fileDto = downloadService.getTemplateFile(fileName);
 
+            // создаём заголовки для ответа
             HttpHeaders headers = new HttpHeaders();
             headers.add("FileName", fileName);
+            // указывает браузеру открыть окно загрузки файла, вместо того, чтобы пытаться проанализировать содержимое
             headers.add(HttpHeaders.CONTENT_DISPOSITION, String.format("attachment; filename=%s", fileName));
 
+            // формирование ответа с headers, body (resource of file), contentLength,
+            // contentType (неопределённые бинарные данные, вызов диалогового окна «Сохранить Как»)
             return ResponseEntity.ok()
                     .headers(headers)
                     .contentLength(fileDto.getResource().contentLength())

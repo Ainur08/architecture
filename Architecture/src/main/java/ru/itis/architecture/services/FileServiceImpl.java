@@ -19,9 +19,12 @@ public class FileServiceImpl implements FileService {
     @Override
     public void save(MultipartFile multipartFile) {
         try {
+            // путь
             Path path = Paths.get("files/" + multipartFile.getOriginalFilename());
+            // располагает файл в файловой системе, где временно загруженный файл будет записан
             multipartFile.transferTo(path);
 
+            // проверка на дубликат и сохранение имени файла в бд
             if (!filesRepository.findByName(multipartFile.getOriginalFilename()).isPresent()) {
                 filesRepository.save(File.builder()
                         .name(multipartFile.getOriginalFilename())
