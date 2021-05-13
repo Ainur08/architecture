@@ -11,8 +11,7 @@
     <groupId>ru.itis.architecture</groupId>
     <artifactId>architecture</artifactId>
     <version>0.1</version>
-    <packaging>war</packaging>
-    <name>Architecture</name>
+    <name>architecture</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
