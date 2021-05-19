@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/skeleton.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/sign-in.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/sign-in.css">
     <meta charset="UTF-8">
     <title>Sign In</title>
 </head>

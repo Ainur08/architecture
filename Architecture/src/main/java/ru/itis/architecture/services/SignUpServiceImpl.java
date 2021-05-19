@@ -6,6 +6,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.itis.architecture.dto.SignUpDto;
+import ru.itis.architecture.generators.ConfirmationTokenGenerator;
+import ru.itis.architecture.models.State;
 import ru.itis.architecture.models.User;
 import ru.itis.architecture.repositories.UsersRepository;
 
@@ -14,6 +16,9 @@ import ru.itis.architecture.repositories.UsersRepository;
 public class SignUpServiceImpl implements SignUpService {
     private final UsersRepository usersRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ConfirmationService confirmationService;
+    // Singleton
+    private final ConfirmationTokenGenerator generator = ConfirmationTokenGenerator.getInstance();
 
     @Override
     @Transactional
@@ -22,17 +27,9 @@ public class SignUpServiceImpl implements SignUpService {
                 .name(signUpDto.getName())
                 .email(signUpDto.getEmail())
                 .hashPassword(passwordEncoder.encode(signUpDto.getPassword()))
-//                .state(State.NOT_CONFIRMED)
-//                .token(ConfirmationTokenGenerator.generate())
+                .state(State.NOT_CONFIRMED)
+                .token(generator.generate())
                 .build());
-
-//        HashMap<String, Object> parameters = new HashMap<>();
-//        parameters.put("token", user.getToken());
-//        confirmationService.send(EmailDto.builder()
-//                .to(user.getEmail())
-//                .subject("Confirm email")
-//                .map(parameters)
-//                .template("confirmationEmail.ftlh")
-//                .build());
+        confirmationService.send(user);
     }
 }
