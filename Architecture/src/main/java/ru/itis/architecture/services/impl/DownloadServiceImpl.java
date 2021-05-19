@@ -1,4 +1,4 @@
-package ru.itis.architecture.services;
+package ru.itis.architecture.services.impl;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ByteArrayResource;
@@ -7,12 +7,14 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.itis.architecture.dto.FileDto;
+import ru.itis.architecture.services.interfaces.DownloadService;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 @Service
-public class DownloadServiceImpl implements DownloadService{
+public class DownloadServiceImpl implements DownloadService {
     @Async
     @Transactional
     @Override

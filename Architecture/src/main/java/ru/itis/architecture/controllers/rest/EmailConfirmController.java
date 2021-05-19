@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import ru.itis.architecture.services.ConfirmationService;
+import ru.itis.architecture.services.interfaces.ConfirmationService;
 
 @RestController
 public class EmailConfirmController {
