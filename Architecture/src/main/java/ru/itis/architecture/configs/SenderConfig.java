@@ -6,7 +6,10 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class SenderConfig {
+    private final String email = "ainurgatin@gmail.com";
+    private final String password = "ainur08_A";
     private Properties props;
+    private Session session;
     private static SenderConfig instance;
 
     // настройки gmail
@@ -16,6 +19,13 @@ public class SenderConfig {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
+
+        // Ауентификация и создание сессии
+        session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(email, password);
+            }
+        });
     }
 
     // pattern Singleton
@@ -27,16 +37,6 @@ public class SenderConfig {
     }
 
     public void send(String subject, String text, String toEmail){
-        String email = "ainurgatin@gmail.com";
-        String password = "ainur08_A";
-
-        // Ауентификация и создание сессии
-        Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(email, password);
-            }
-        });
-
         // настройка отправляемого сообщения
         try {
             Message message = new MimeMessage(session);
