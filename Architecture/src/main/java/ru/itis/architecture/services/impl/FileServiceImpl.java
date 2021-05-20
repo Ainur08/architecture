@@ -1,6 +1,7 @@
 package ru.itis.architecture.services.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.architecture.mapper.FileMapper;
