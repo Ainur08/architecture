@@ -1,7 +1,7 @@
 Back: </br>
-Singleton: классы SenderConfig/ConfirmationTokenGenerator </br>
-Strategy: класс FileAnalyticsServiceImpl и другие </br>
-Builder: класс User </br>
-Iterator: </br>
-Factory: </br>
+   1. Singleton: классы SenderConfig/ConfirmationTokenGenerator </br>
+   2. Strategy: класс FileAnalyticsServiceImpl и другие </br>
+   3. Builder: класс User </br>
+   4. Iterator: </br>
+   5. Factory: </br>
 Front: </br>
