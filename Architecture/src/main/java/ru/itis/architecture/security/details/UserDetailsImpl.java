@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.itis.architecture.models.State;
 import ru.itis.architecture.models.User;
 import java.util.Collection;
 
@@ -48,7 +49,6 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
-//        return user.getState().equals(State.CONFIRMED);
+        return user.getState().equals(State.CONFIRMED);
     }
 }

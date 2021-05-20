@@ -20,8 +20,8 @@ public class User {
     private String name;
     private String email;
     private String hashPassword;
+    private String token;
 
-//    private String token;
-//    @Enumerated(value = EnumType.STRING)
-//    private State state;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
 }
