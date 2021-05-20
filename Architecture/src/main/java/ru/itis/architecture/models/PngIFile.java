@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PngFile implements File{
+public class PngIFile implements IFile {
     private Long id;
 
     private String name;

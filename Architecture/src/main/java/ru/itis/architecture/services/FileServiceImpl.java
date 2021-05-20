@@ -5,10 +5,9 @@ import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.architecture.mapper.FileMapper;
+import ru.itis.architecture.models.IFile;
 import ru.itis.architecture.models.File;
-import ru.itis.architecture.models.FileEntity;
 import ru.itis.architecture.models.FileFactory;
-import ru.itis.architecture.models.TxtFile;
 import ru.itis.architecture.models.enums.FileType;
 import ru.itis.architecture.repositories.FilesRepository;
 
@@ -35,14 +34,14 @@ public class FileServiceImpl implements FileService {
             if (!filesRepository.findByName(multipartFile.getOriginalFilename()).isPresent()) {
                 FileFactory fileFactory = new FileFactory();
                 String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename()).toUpperCase();
-                File file = fileFactory.getFile(FileType.ANOTHER);
+                IFile IFile = fileFactory.getFile(FileType.ANOTHER);
                 try {
-                    file = fileFactory.getFile(FileType.valueOf(extension));
+                    IFile = fileFactory.getFile(FileType.valueOf(extension));
                 }catch (IllegalArgumentException e){
                     System.out.println(e);
                 }
-                file.setName(multipartFile.getOriginalFilename());
-                filesRepository.save(fileMapper.toFileEntity(file));
+                IFile.setName(multipartFile.getOriginalFilename());
+                filesRepository.save(fileMapper.toFileEntity(IFile));
 
 
             }
@@ -52,7 +51,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public List<FileEntity> findAllFile() {
+    public List<File> findAllFile() {
         return filesRepository.findAll();
     }
 }
