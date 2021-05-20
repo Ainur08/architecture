@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface FilesRepository extends JpaRepository<File, Long> {
     Optional<File> findByName(String name);
+
+    void deleteByName(String name);
 }
