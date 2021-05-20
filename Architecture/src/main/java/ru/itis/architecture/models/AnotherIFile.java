@@ -5,17 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "itis_file")
-public class File {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AnotherIFile implements IFile {
     private Long id;
 
     private String name;

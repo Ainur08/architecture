@@ -1,7 +1,6 @@
-package ru.itis.architecture.services;
+package ru.itis.architecture.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +9,8 @@ import ru.itis.architecture.generators.ConfirmationTokenGenerator;
 import ru.itis.architecture.models.State;
 import ru.itis.architecture.models.User;
 import ru.itis.architecture.repositories.UsersRepository;
+import ru.itis.architecture.services.interfaces.ConfirmationService;
+import ru.itis.architecture.services.interfaces.SignUpService;
 
 @Service
 @RequiredArgsConstructor

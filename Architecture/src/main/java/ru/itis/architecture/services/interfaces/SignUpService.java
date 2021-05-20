@@ -1,4 +1,4 @@
-package ru.itis.architecture.services;
+package ru.itis.architecture.services.interfaces;
 
 import ru.itis.architecture.dto.SignUpDto;
 

@@ -1,7 +1,8 @@
-package ru.itis.architecture.services;
+package ru.itis.architecture.services.interfaces;
 
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.architecture.models.File;
+
 import java.util.List;
 
 public interface FileService {
