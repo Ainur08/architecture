@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.architecture.dto.SignUpDto;
-import ru.itis.architecture.services.SignUpService;
+import ru.itis.architecture.services.interfaces.SignUpService;
 
 @Controller
 public class SignUpController {

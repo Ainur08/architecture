@@ -12,8 +12,8 @@ import org.springframework.mock.web.MockMultipartFile;
 import ru.itis.architecture.dto.FileDto;
 import ru.itis.architecture.models.File;
 import ru.itis.architecture.repositories.FilesRepository;
-import ru.itis.architecture.services.DownloadServiceImpl;
-import ru.itis.architecture.services.FileServiceImpl;
+import ru.itis.architecture.services.impl.DownloadServiceImpl;
+import ru.itis.architecture.services.impl.FileServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;

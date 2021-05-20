@@ -1,4 +1,4 @@
-package ru.itis.architecture.services;
+package ru.itis.architecture.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
@@ -8,11 +8,13 @@ import ru.itis.architecture.configs.SenderConfig;
 import ru.itis.architecture.models.State;
 import ru.itis.architecture.models.User;
 import ru.itis.architecture.repositories.UsersRepository;
+import ru.itis.architecture.services.interfaces.ConfirmationService;
+
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ConfirmationServiceImpl implements ConfirmationService{
+public class ConfirmationServiceImpl implements ConfirmationService {
     private final UsersRepository usersRepository;
     // Singleton
     private final SenderConfig sender = SenderConfig.getInstance();

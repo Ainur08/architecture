@@ -1,11 +1,11 @@
-package ru.itis.architecture.services;
+package ru.itis.architecture.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.architecture.models.File;
 import ru.itis.architecture.repositories.FilesRepository;
+import ru.itis.architecture.services.interfaces.FileService;
 
 import java.io.IOException;
 import java.nio.file.Path;
