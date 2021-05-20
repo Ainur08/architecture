@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import ru.itis.architecture.dto.FileDto;
-import ru.itis.architecture.models.FileEntity;
+import ru.itis.architecture.models.File;
 import ru.itis.architecture.repositories.FilesRepository;
 import ru.itis.architecture.services.impl.DownloadServiceImpl;
 import ru.itis.architecture.services.impl.FileServiceImpl;
@@ -36,7 +36,7 @@ class ArchitectureApplicationTests {
     //Тестируем что метод save() работает корректно
     @Test
     public void saveFileTest(){
-        FileEntity file = FileEntity.builder()
+        File file = File.builder()
                         .name("test.txt")
                         .build();
 
@@ -64,25 +64,25 @@ class ArchitectureApplicationTests {
     //Проверяем что метод findAllFiles() работает корректно
     @Test
     public void findAllFilesTest(){
-        List<FileEntity> actualFiles = new ArrayList<>();
-        actualFiles.add(FileEntity.builder()
+        List<File> actualFiles = new ArrayList<>();
+        actualFiles.add(File.builder()
                 .name("test1.txt")
                 .build());
-        actualFiles.add(FileEntity.builder()
+        actualFiles.add(File.builder()
                 .name("test2.txt")
                 .build());
-        actualFiles.add(FileEntity.builder()
+        actualFiles.add(File.builder()
                 .name("test3.txt")
                 .build());
 
-        List<FileEntity> expectedFiles = new ArrayList<>();
-        expectedFiles.add(FileEntity.builder()
+        List<File> expectedFiles = new ArrayList<>();
+        expectedFiles.add(File.builder()
                 .name("test1.txt")
                 .build());
-        expectedFiles.add(FileEntity.builder()
+        expectedFiles.add(File.builder()
                 .name("test2.txt")
                 .build());
-        expectedFiles.add(FileEntity.builder()
+        expectedFiles.add(File.builder()
                 .name("test3.txt")
                 .build());
 

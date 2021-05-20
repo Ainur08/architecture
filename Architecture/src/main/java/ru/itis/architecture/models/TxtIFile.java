@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TxtFile implements File{
+public class TxtIFile implements IFile {
     private Long id;
 
     private String name;
